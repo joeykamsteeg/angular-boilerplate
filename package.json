@@ -1,0 +1,28 @@
+{
+  "name": "cabooter-web-application",
+  "version": "1.0.0",
+  "description": "KPI registratie Cabooter",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://joey_hulan@bitbucket.org/hulanstudio/cabooter-web-application.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/hulanstudio/cabooter-web-application#readme",
+  "dependencies": {
+    "angular": "^1.5.6",
+    "angular-resource": "^1.5.6",
+    "angular-route": "^1.5.6",
+    "fastclick": "^1.0.6",
+    "foundation-sites": "^6.2.3",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-sass": "^2.3.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-util": "^3.0.7"
+  }
+}
