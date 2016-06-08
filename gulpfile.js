@@ -2,7 +2,9 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
     util = require('gulp-util'),
-    concat = require('gulp-concat');
+    concat = require('gulp-concat'),
+	connect = require('gulp-connect'),
+	uglify = require('gulp-uglify');
 
 gulp.task('build-sass', function(){
 	return gulp.src('./scss/**/*.scss')
@@ -27,6 +29,12 @@ gulp.task('build-js', function(){
 		
 		this.emit('end');
 	}))
+	.pipe( uglify().on('error', function( error ){
+		util.log( util.colors.red( error ) );
+		util.beep();
+		
+		this.emit('end');
+	}))
 	.pipe( sourcemaps.write() )
 	.pipe( gulp.dest( 'dist/' ) );
 });
@@ -44,6 +52,21 @@ gulp.task('watch', function(){
 		'build-js'
 	]);
 });
+
+gulp.task('start-server', function(){
+	connect.server({
+		livereload: false,
+		host: '0.0.0.0',
+		port: 3000
+	});
+});
+
+gulp.task('run', [
+	'build-sass',
+	'build-js',
+	'start-server',
+	'watch'
+]);
 
 gulp.task('default',[
 	'watch'
